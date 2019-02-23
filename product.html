@@ -1,0 +1,56 @@
+<html>
+<head>
+<script type="text/javascript">
+	function shoppingCart()
+	{   
+		var i;
+		var products = []; 
+		var n = prompt("please enter how many products u want to add:");
+	    for(i=0;i<n;i++) {
+	    var name = prompt ("Please enter product name","");
+	    var desc = prompt ("Please enter description of the product","");
+	    var price = prompt ("Enter price of the product");  
+	    if (name != null && name != "")
+	    {
+	      if (desc != null && desc != "")
+	      {
+	      	if (price != null && price != "")
+	      	{
+			      products.push ({
+		  	      name:name,
+		  	      desc:desc,
+		  	      price:price
+		  	    });
+	        }
+	      }
+	    }
+	  }
+	  console.log(products);
+    totalPriceOfCart(products, n);
+  }
+  
+	function totalPriceOfCart(products,n) {
+		for(var i=0;i<n;i++){
+		  var price=products[i].price;
+		  var quantity=n;
+		  var totalCost=price * n;
+	}
+	  alert("Total cost:" +totalCost);
+	  discount(products,n);
+	}
+
+	function discount(products,n) {
+		for(i = 0;i < n;i ++) {
+		  var cost = products[i].price / 10;
+		  var updatedPrice = products[i].price - cost;
+		  alert ("Updated price of" +products[i].name+ "=" +updatedPrice); 
+		}
+	}
+</script>
+</head>
+<body>
+<form>
+  <input type="button" onclick="shoppingCart()" value="Click me"> 
+</form>
+</body>
+</html>

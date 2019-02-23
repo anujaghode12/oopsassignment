@@ -1,0 +1,60 @@
+<html>
+<head>
+<script type="text/javascript">
+	function displayStudents()
+	{   
+		var i;
+		var student = []; 
+		var marks = new Array (3);
+	  var n = prompt("please enter how many no of students u want to add:");
+	   for(i = 0;i < n; i++) {
+	    var name = prompt ("Please enter student name","");
+	    var Age = prompt ("Please enter student Age","");
+	    for(var j = 0 ; j < 3 ;j++){
+         marks[j] = prompt("enter mark","");
+	    }  
+	    if (name != null && name !="")
+	    {
+	      if (Age != null && Age != "")
+	      {
+	      	if (marks != null && marks != "")
+	      	{
+			      student.push ({
+		  	      name:name,
+		  	      Age:Age,
+		  	      mark:marks
+		  	    });
+	        }
+	      }
+	    }
+	  }
+	  console.log(student);
+	  search(student,n);
+	  percentage(student,n);
+	}
+	function search(student,n) {
+	  var sname = prompt ("Please enter student to be search","");
+	  for(var i = 0 ; i < n  ; i++) {
+	    if(sname == student[i].name) {
+	    	alert("Age of" +student[i].name+ "is" +student[i].Age);
+	    }
+	  }
+	}
+	function percentage(student,n) {
+    var sname = prompt ("Please enter student name","");
+    for(var i = 0 ; i < n  ; i++) {
+    	if(sname == student[i].name) {
+        var sum = +student[i].mark[0] + +student[i].mark[1] + +student[i].mark[2];
+        var per = (sum*100)/300;
+        alert("percentage of " +student[i].name+ "is" +per+ "%");
+    	}
+	  }
+	}
+</script>
+</head>
+<body>
+<form>
+  <input type="button" onclick="displayStudents()" value="Click me">
+</form>
+</body>
+</html>

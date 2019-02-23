@@ -1,0 +1,39 @@
+<html>
+</!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript">
+	     //Superclass
+		function animal (name, age, type) {
+			this.name = name;
+			this.age = age;
+			this.type = type;
+		}
+		//superclass method
+		animal.prototype.canRun = function() {
+			document.write("Name:" +this.name+ "Age:" +this.age+ "Type:" +this.type);
+			document.write("yes" +this.name+ "canRun");
+		}
+		var dog = new animal ("Rockey", 2, "PetAnimal");
+		dog.canRun();
+		  //subclass
+		function human(name, age, type, money) {
+			//call superclass constructor
+      animal.call(this, name, age);
+      this.money = money;
+		}
+		//subclass extends superclass
+		human.prototype = Object.create(animal.prototype);
+		human.prototype.canEarn = function() {
+			console.log ("yes" +this.name+ "can earn");
+		}
+		var h1 = new human("Raja", 30, "human", 2000);
+		h1.canRun();
+		h1.canEarn();
+	</script>
+</head>
+<body>
+
+</body>
+</html>
